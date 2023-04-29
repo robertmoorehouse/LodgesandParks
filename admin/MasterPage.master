@@ -1,0 +1,114 @@
+<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="MasterPage" %>
+<%@ Register Src="../AdvertisingBanner1.ascx" TagName="AdvertisingBanner1" TagPrefix="uc1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server" id="Head1">
+    <meta runat="server" id="metaDesc" name="metaDesc" content="Villas, holiday homes, vacation rentals  book direct from private villa owners with credit card payment.  Worldwide choice of villas, and holiday homes." />
+    <meta runat="server" name="keywords" content="Villas, holiday homes, vacation rentals, rental homes, holiday villas, villa holiday, vacation rentals by owner, vacation villa, villa rentals, vacation rental, vacation rental homes, rental villas, holiday villas, vacation house rentals" />
+    <meta content="findavilla" name="keywords" runat="server" />
+    <meta http-equiv="Content-Type" content="text/html; iso-8859-1" />
+    <meta name="title" content="Lodge and park holidays, villas, cottages, Caravan park holidays, holiday homes, holiday rentals" />
+    <meta name="ROBOTS" content="INDEX,NOFOLLOW" />
+    <meta name="description" content="Holiday accomodation website allowing you to view options and check availability and book on line " />
+    <meta name="abstract" content="Holiday accommodation check availability and book on line" />
+    <meta name="author" content="Robert Moorehouse" />
+    <meta name="publisher" content="Grapple UK Limited" />
+    <meta name="copyright" content="Grapple UK Limited" />
+    <meta http-equiv="Reply-to" content="hullnew@hotmail.com" />
+    <meta name="revisit-after" content="7 days" />
+    <title id="Title1" runat="server">Unititled Page</title>
+    <!--
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+    <link href="../css/shell.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <%--<asp:ScriptManager ID="ScriptManager1" runat="server" />--%>
+        <div id="container">
+            <div class="seo_bar">
+                <div class="seo_text">
+                    <span class="searchbartext" title="Lodges, parks, villas and cottages at the best prices.">
+                        <asp:Literal ID="pageheadertext" runat="server"></asp:Literal></span>
+                </div>
+            </div>
+            <div class="background_shell">
+                <div class="findavilla_logo">
+                    <a href="default.aspx">
+                        <asp:Image ID="Image1" runat="server" SkinID="logo" />
+                    </a>
+                </div>
+                <div class="findavilla_topadvert">
+                    <%--<uc1:AdvertisingBanner1 ID="AdvertisingBanner1_2" runat="server" />--%>
+                </div>
+                <div class="findavilla_searchbar">
+                    I am looking for
+                    <input name="searchwords" type="text" id="searchwords" style="color: #000000; font-family: Verdana;
+                        font-size: 16pt; height: 24px; width: 472px;" />
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:ImageButton ID="searchButton" runat="server" PostBackUrl="~/results.aspx" ImageUrl="~/images/find.gif" />
+                </div>
+                <div class="findavilla_spacer">
+                    <img src="../images/1x1_spacer.gif" alt="Spacer" width="960" height="14" />
+                </div>
+                <div class="headerlinks_shell">
+                    <asp:HyperLink ID="lnkSummary" runat="server" SkinID="lnkParks" CssClass="lodgesandparks" NavigateUrl="http://www.lodgesandparks.co.uk">Lodges &amp; Parks</asp:HyperLink>
+                    <asp:HyperLink ID="lnkCottages" runat="server" CssClass="cottages" NavigateUrl="http://www.cottageoffers.com">Cottages</asp:HyperLink>
+                    <asp:HyperLink ID="lnkBoat" runat="server" CssClass="boat" NavigateUrl="http://www.boatingoffers.co.uk">Boats</asp:HyperLink>
+                    <asp:HyperLink ID="lnkVillas" runat="server" CssClass="villa" NavigateUrl="http://www.villacompare.com">Villas &amp; Apartments</asp:HyperLink>
+                    <asp:HyperLink ID="lnkhotels" runat="server" CssClass="hotels" NavigateUrl="http://clkuk.tradedoubler.com/click?p=19300&a=1292087&g=627951&epi=finda-villa" Target="_blank">Hotels</asp:HyperLink>
+                    <asp:HyperLink ID="lnkBB" runat="server" CssClass="bed" NavigateUrl="http://clkuk.tradedoubler.com/click?p=22535&a=1292087&g=16657960" Target="_blank">Bed &amp; Breakfast</asp:HyperLink>
+                    <asp:HyperLink ID="lnkInsurance" runat="server" CssClass="insurance" NavigateUrl="http://clkuk.tradedoubler.com/click?p=3284&a=1292087&g=16342416&epi=finda-villa" Target="_blank">Insurance</asp:HyperLink>
+                    <asp:HyperLink ID="lnkAttractions" runat="server" CssClass="attractions">Attractions</asp:HyperLink>
+                    <asp:HyperLink ID="lnkCarHire" runat="server" CssClass="car" NavigateUrl="http://clkuk.tradedoubler.com/click?p=16988&a=1292087&g=16784446&epi=finda-villa" Target="_blank">Car Hire</asp:HyperLink>
+                    <asp:HyperLink ID="lnkFlights" runat="server" CssClass="flights" NavigateUrl="http://clkuk.tradedoubler.com/click?p=4506&a=1292087&g=27442&epi=finda-villa" Target="_blank">Flights</asp:HyperLink>
+                </div>
+            </div>
+            <div class="background_shell">
+                <div class="findavilla_leftnav">
+                    <div class="findavilla_leftnav_top">
+                        <img src="../images/products_top.gif" alt="Choose a catogory" />
+                    </div>
+                    <div class="findavilla_leftnav_links">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="findavilla_leftnav_adverts">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+                <div class="findavilla_contentarea">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div class="findavilla_spacer">
+                    <img src="../images/1x1_spacer.gif" alt="Spacer" width="960" height="14" />
+                </div>
+                <img src="../images/1x1_spacer.gif" alt="Spacer" width="50" height="14" />
+            </div>
+            <div class="background_shell">
+                <div class="findavilla_footershell">
+                    <div class="findavilla_footercontent">
+                        <a href="http://jigsaw.w3.org/css-validator/" target="_blank">
+                    <img style="border: 0; height: 15px" src="http://jigsaw.w3.org/css-validator/images/vcss"
+                        alt="Valid CSS!" /></a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &copy Grapple (UK) Limited.
+
+                        <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+                        </script>
+                        <script type="text/javascript">
+                        _uacct = "UA-711691-7";
+                        urchinTracker();
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

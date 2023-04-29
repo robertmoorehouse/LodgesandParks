@@ -1,0 +1,59 @@
+<%@ Language = vbscript %>
+<%Option Explicit%>
+<%
+Dim objXMLDoc,objEurorelais,intcount,aMinPrice,aImages 
+dim ResultColor,intTotalPages,strURLNext,strURLPrevious
+dim nodeDescription,nodeImage,nodeUserLocation,nodeLocation
+Dim strXML,xml,intImageCount
+Dim objXML ,objRegionsXML
+dim intRegion,intCountry
+dim intLocationCount
+
+'* Creating the Document Object where the XML will be stored after calling the webservice
+Set xml = server.CreateObject("Microsoft.XMLDOM")
+
+'* Creating the HTTP Object, this will call the webservice
+Set objXML =  server.CreateObject("Microsoft.XMLHTTP")
+
+'*****************************************************
+'THIS SECTION GETS PROPERTY RESULTS
+'response.write "http://www.villarenters.com/VillarentersWebService/VillaSearch.asmx/VillaSearchV2?Rag=&strOwnerRefs=&strPropRefs=" & request("PropRef") & "&intPropType=0&strLocationRefs=&intMaxPrice=0&intMinPrice=0&intSleeps=0&blnInstantBooking=false&intVillarentersIndex=0&intDiscountType=0&intBranding=0&intPage=1&intItemsPerPage=10&blnEnableAvailabilitySearch=false&strFromYYYYMMDD=&strToYYYYMMDD=&intSortOrder=0"
+objXML.Open "GET", "http://www.grappleuk.com/internalWebServices/zonchiholidays.asmx/GetALLPropertyDetails?strPropRefs=" & request("PropRef") & "&website=" & request("website") , False
+objXML.setRequestHeader "Content-Type", "text/xml"
+objXML.send
+strXML = objXML.responseXML.xml
+strXML = Replace(strXML, " xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns=""http://tempuri.org/internalWebServices/zonchiholidays""", "")
+xml.loadXML strXML
+'*****************************************************
+'*Set the NodeList For the Image
+set nodeImage=xml.getElementsByTagName("Villa")(0).childNodes(6)
+intImageCount=nodeImage.childNodes.length -1
+
+	Dim sXML, sXML2, i, propRef, n
+	Dim rootPath, incPath
+
+	rootPath = "../" 
+	
+	propRef = Request("PropRef")
+	
+
+	'-- Get prop pictures allowed number
+	
+     Dim objFileSystem, item, url, ImageFiles, path
+     Dim Files, propPicCount
+
+		   sXML = "<?xml version=""1.0"" encoding=""UTF-8""?>"
+	sXML = sXML & "<gallery>"
+	sXML = sXML & "<album id='Property " & propRef & "' description='Property Advert Pictures' lgPath='' startHere='true'>"
+				
+			For n =0 to intImageCount -1 'propPicCount
+				sXML2 = sXML2 & "<img src='" & nodeImage.childNodes(n).childNodes(1).firstChild.nodeValue &  "'  caption=' '/>"
+			Next
+
+	sXML = sXML & sXML2 
+
+	sXML = sXML & "</album>"
+	sXML = sXML & "</gallery>" 
+
+	Response.Write sXML
+%>

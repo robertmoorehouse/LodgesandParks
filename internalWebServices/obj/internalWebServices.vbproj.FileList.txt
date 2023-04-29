@@ -1,0 +1,9 @@
+bin\internalWebServices.dll
+bin\internalWebServices.pdb
+bin\internalWebServices.xml
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\internalWebServices.Resources.resources
+obj\Debug\internalWebServices.vbproj.GenerateResource.Cache
+obj\Debug\internalWebServices.dll
+obj\Debug\internalWebServices.xml
+obj\Debug\internalWebServices.pdb

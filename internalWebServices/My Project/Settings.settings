@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="internalWebServices_VR_locations_Villarenters" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.villarenters.com/VillarentersWebService/Villarenters.asmx</Value>
+    </Setting>
+    <Setting Name="internalWebServices_VR_VillaSearch_villa_search" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.villarenters.com/VillarentersWebService/VillaSearch.asmx</Value>
+    </Setting>
+    <Setting Name="internalWebServices_VR_searchengine_SearchEngine" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.villarenters.com/VillarentersWebService/SearchEngine.asmx</Value>
+    </Setting>
+    <Setting Name="internalWebServices_VR_pricechecker_priceChecker" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.villarenters.com/VillarentersWebService/priceChecker.asmx</Value>
+    </Setting>
+    <Setting Name="internalWebServices_VR_pagedatafeed_pageDataFeed" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.villarenters.com/VillarentersWebService/pageDataFeed.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/VillarentersWebService/villa_search" xmlns:s1="http://www.cpandl.com" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/VillarentersWebService/villa_search" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/VillarentersWebService/villa_search">
+      <s:import namespace="http://www.cpandl.com" />
+      <s:element name="GoogleMapsLocators">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Rag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOwnerRefs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPropRefs" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intPropType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLocationRefs" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intMaxPrice" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intMinPrice" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intSleeps" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnInstantBooking" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="intVillarentersIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intDiscountType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intBranding" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intItemsPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnEnableAvailabilitySearch" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFromYYYYMMDD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strToYYYYMMDD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intSortOrder" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="VRF" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GoogleMapsLocatorsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GoogleMapsLocatorsResult" type="tns:markers" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="markers">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:marker" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="VillaSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Rag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOwnerRefs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPropRefs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLocationRefs" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intMaxPrice" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intMinPrice" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intSleeps" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnInstantBooking" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="intVillarentersIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intDiscountType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intBranding" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intItemsPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnEnableAvailabilitySearch" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFromYYYYMMDD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strToYYYYMMDD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intSortOrder" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VillaSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VillaSearchResult" type="tns:VillaResults" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="VillaResults">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfRecords" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Villas" type="tns:ArrayOfVilla" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfVilla">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Villa" type="tns:Villa" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Villa">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="prop_ref" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="owner_ref" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="PropType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Summary" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descriptions" type="tns:ArrayOfDescription" />
+          <s:element minOccurs="0" maxOccurs="1" name="PropImages" type="tns:ArrayOfPropImage" />
+          <s:element minOccurs="0" maxOccurs="1" name="Filename" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Locations" type="tns:ArrayOfLocation" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinPrice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxPrice" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sleeps" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DoubleBeds" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TwinBeds" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SingleBeds" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cots" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Bathrooms" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TV" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Satellite" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Telephone" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cooker" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Microwave" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fridge" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Freezer" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Internet" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CentralHeating" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LinenProvided" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AirConditioning" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Traffic" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Seaside" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SightSeeing" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Tourist" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Romantic" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Relaxing" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Activity" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pets" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="OpenFire" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Garden" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Patio" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Balcony" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrivatePool" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SharedPool" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TennisCourt" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Parking" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Airport" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AirportDistance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserFields" type="tns:ArrayOfUserField" />
+          <s:element minOccurs="0" maxOccurs="1" name="MapLink" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Lon" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Lat" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Extra" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Beach" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sailing" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Swimming" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Walking" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cycling" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HorseRiding" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Skiing" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Golf" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tennis" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Climbing" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nonesmoking" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="InstantBooking" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="VillarentersIndex" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExternalRef" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDescription">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Description" type="tns:Description" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Description">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Paragraph" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPropImage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PropImage" type="tns:PropImage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PropImage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ImageCaption" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageURL" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLocation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Location" type="tns:Location" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Location">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LocationRef" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ParentID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUserField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UserField" type="tns:UserField" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserDistance" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPropertyAvailability">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prop_ref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VRF" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPropertyAvailabilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetPropertyAvailabilityResult" type="tns:Availability" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Availability">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="prop_ref" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="currency" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="minNotice" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="minBookingPeriod" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PropertyAvailabilities" type="tns:ArrayOfPropertyAvailability" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPropertyAvailability">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PropertyAvailability" type="tns:PropertyAvailability" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PropertyAvailability">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="intYear" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="intMonth" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MonthAvailability" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MonthPricing" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPropertyReviews">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prop_ref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VRF" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPropertyReviewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetPropertyReviewsResult" type="tns:PropertyReview" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PropertyReview">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="prop_ref" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reviews" type="tns:ArrayOfReview" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfReview">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Review" type="tns:Review" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Review">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ReviewDate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StarRating" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="By" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="From" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Article" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetChildLocations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ParentID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VRF" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChildLocationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetChildLocationsResult" type="tns:ChildLocation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ChildLocation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RequestedParentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VRF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChildLocations" type="tns:ArrayOfLocation" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCountryList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="country_ref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VRF" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCountryListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCountryListResult" type="tns:CountryList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CountryList">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CountryRef" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Countries" type="tns:ArrayOfCountry" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCountry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Country" type="tns:Country" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Country">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Regions" type="tns:ArrayOfRegion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRegion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Region" type="tns:Region" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Region">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ParentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubRegions" type="tns:ArrayOfSubRegion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSubRegion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SubRegion" type="tns:SubRegion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SubRegion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ParentID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="VillaSearchV2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Rag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOwnerRefs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPropRefs" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intPropType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLocationRefs" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intMaxPrice" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intMinPrice" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intSleeps" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnInstantBooking" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="intVillarentersIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intDiscountType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intBranding" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intItemsPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnEnableAvailabilitySearch" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFromYYYYMMDD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strToYYYYMMDD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intSortOrder" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="VRF" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VillaSearchV2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VillaSearchV2Result" type="tns:VillaResults" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="markers" nillable="true" type="tns:markers" />
+      <s:element name="VillaResults" type="tns:VillaResults" />
+      <s:element name="Availability" type="tns:Availability" />
+      <s:element name="PropertyReview" type="tns:PropertyReview" />
+      <s:element name="ChildLocation" type="tns:ChildLocation" />
+      <s:element name="CountryList" type="tns:CountryList" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.cpandl.com">
+      <s:element name="marker" type="s1:marker" />
+      <s:complexType name="marker">
+        <s:attribute name="lat" type="s:string" />
+        <s:attribute name="lng" type="s:string" />
+        <s:attribute name="html" type="s:string" />
+        <s:attribute name="label" type="s:string" />
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GoogleMapsLocatorsSoapIn">
+    <wsdl:part name="parameters" element="tns:GoogleMapsLocators" />
+  </wsdl:message>
+  <wsdl:message name="GoogleMapsLocatorsSoapOut">
+    <wsdl:part name="parameters" element="tns:GoogleMapsLocatorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillaSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:VillaSearch" />
+  </wsdl:message>
+  <wsdl:message name="VillaSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:VillaSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyAvailabilitySoapIn">
+    <wsdl:part name="parameters" element="tns:GetPropertyAvailability" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyAvailabilitySoapOut">
+    <wsdl:part name="parameters" element="tns:GetPropertyAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyReviewsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPropertyReviews" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyReviewsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPropertyReviewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChildLocationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChildLocations" />
+  </wsdl:message>
+  <wsdl:message name="GetChildLocationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChildLocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCountryListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCountryList" />
+  </wsdl:message>
+  <wsdl:message name="GetCountryListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCountryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillaSearchV2SoapIn">
+    <wsdl:part name="parameters" element="tns:VillaSearchV2" />
+  </wsdl:message>
+  <wsdl:message name="VillaSearchV2SoapOut">
+    <wsdl:part name="parameters" element="tns:VillaSearchV2Response" />
+  </wsdl:message>
+  <wsdl:message name="GoogleMapsLocatorsHttpGetIn">
+    <wsdl:part name="Rag" type="s:string" />
+    <wsdl:part name="strOwnerRefs" type="s:string" />
+    <wsdl:part name="strPropRefs" type="s:string" />
+    <wsdl:part name="intPropType" type="s:string" />
+    <wsdl:part name="strLocationRefs" type="s:string" />
+    <wsdl:part name="intMaxPrice" type="s:string" />
+    <wsdl:part name="intMinPrice" type="s:string" />
+    <wsdl:part name="intSleeps" type="s:string" />
+    <wsdl:part name="blnInstantBooking" type="s:string" />
+    <wsdl:part name="intVillarentersIndex" type="s:string" />
+    <wsdl:part name="intDiscountType" type="s:string" />
+    <wsdl:part name="intBranding" type="s:string" />
+    <wsdl:part name="intPage" type="s:string" />
+    <wsdl:part name="intItemsPerPage" type="s:string" />
+    <wsdl:part name="blnEnableAvailabilitySearch" type="s:string" />
+    <wsdl:part name="strFromYYYYMMDD" type="s:string" />
+    <wsdl:part name="strToYYYYMMDD" type="s:string" />
+    <wsdl:part name="intSortOrder" type="s:string" />
+    <wsdl:part name="VRF" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GoogleMapsLocatorsHttpGetOut">
+    <wsdl:part name="Body" element="tns:markers" />
+  </wsdl:message>
+  <wsdl:message name="VillaSearchHttpGetIn">
+    <wsdl:part name="Rag" type="s:string" />
+    <wsdl:part name="strOwnerRefs" type="s:string" />
+    <wsdl:part name="strPropRefs" type="s:string" />
+    <wsdl:part name="strLocationRefs" type="s:string" />
+    <wsdl:part name="intMaxPrice" type="s:string" />
+    <wsdl:part name="intMinPrice" type="s:string" />
+    <wsdl:part name="intSleeps" type="s:string" />
+    <wsdl:part name="blnInstantBooking" type="s:string" />
+    <wsdl:part name="intVillarentersIndex" type="s:string" />
+    <wsdl:part name="intDiscountType" type="s:string" />
+    <wsdl:part name="intBranding" type="s:string" />
+    <wsdl:part name="intPage" type="s:string" />
+    <wsdl:part name="intItemsPerPage" type="s:string" />
+    <wsdl:part name="blnEnableAvailabilitySearch" type="s:string" />
+    <wsdl:part name="strFromYYYYMMDD" type="s:string" />
+    <wsdl:part name="strToYYYYMMDD" type="s:string" />
+    <wsdl:part name="intSortOrder" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VillaSearchHttpGetOut">
+    <wsdl:part name="Body" element="tns:VillaResults" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyAvailabilityHttpGetIn">
+    <wsdl:part name="prop_ref" type="s:string" />
+    <wsdl:part name="VRF" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyAvailabilityHttpGetOut">
+    <wsdl:part name="Body" element="tns:Availability" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyReviewsHttpGetIn">
+    <wsdl:part name="prop_ref" type="s:string" />
+    <wsdl:part name="VRF" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyReviewsHttpGetOut">
+    <wsdl:part name="Body" element="tns:PropertyReview" />
+  </wsdl:message>
+  <wsdl:message name="GetChildLocationsHttpGetIn">
+    <wsdl:part name="ParentID" type="s:string" />
+    <wsdl:part name="VRF" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetChildLocationsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ChildLocation" />
+  </wsdl:message>
+  <wsdl:message name="GetCountryListHttpGetIn">
+    <wsdl:part name="country_ref" type="s:string" />
+    <wsdl:part name="VRF" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCountryListHttpGetOut">
+    <wsdl:part name="Body" element="tns:CountryList" />
+  </wsdl:message>
+  <wsdl:message name="VillaSearchV2HttpGetIn">
+    <wsdl:part name="Rag" type="s:string" />
+    <wsdl:part name="strOwnerRefs" type="s:string" />
+    <wsdl:part name="strPropRefs" type="s:string" />
+    <wsdl:part name="intPropType" type="s:string" />
+    <wsdl:part name="strLocationRefs" type="s:string" />
+    <wsdl:part name="intMaxPrice" type="s:string" />
+    <wsdl:part name="intMinPrice" type="s:string" />
+    <wsdl:part name="intSleeps" type="s:string" />
+    <wsdl:part name="blnInstantBooking" type="s:string" />
+    <wsdl:part name="intVillarentersIndex" type="s:string" />
+    <wsdl:part name="intDiscountType" type="s:string" />
+    <wsdl:part name="intBranding" type="s:string" />
+    <wsdl:part name="intPage" type="s:string" />
+    <wsdl:part name="intItemsPerPage" type="s:string" />
+    <wsdl:part name="blnEnableAvailabilitySearch" type="s:string" />
+    <wsdl:part name="strFromYYYYMMDD" type="s:string" />
+    <wsdl:part name="strToYYYYMMDD" type="s:string" />
+    <wsdl:part name="intSortOrder" type="s:string" />
+    <wsdl:part name="VRF" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VillaSearchV2HttpGetOut">
+    <wsdl:part name="Body" element="tns:VillaResults" />
+  </wsdl:message>
+  <wsdl:portType name="villa_searchSoap">
+    <wsdl:operation name="GoogleMapsLocators">
+      <wsdl:input message="tns:GoogleMapsLocatorsSoapIn" />
+      <wsdl:output message="tns:GoogleMapsLocatorsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VillaSearch">
+      <wsdl:input message="tns:VillaSearchSoapIn" />
+      <wsdl:output message="tns:VillaSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyAvailability">
+      <wsdl:input message="tns:GetPropertyAvailabilitySoapIn" />
+      <wsdl:output message="tns:GetPropertyAvailabilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyReviews">
+      <wsdl:input message="tns:GetPropertyReviewsSoapIn" />
+      <wsdl:output message="tns:GetPropertyReviewsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChildLocations">
+      <wsdl:input message="tns:GetChildLocationsSoapIn" />
+      <wsdl:output message="tns:GetChildLocationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryList">
+      <wsdl:input message="tns:GetCountryListSoapIn" />
+      <wsdl:output message="tns:GetCountryListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VillaSearchV2">
+      <wsdl:input message="tns:VillaSearchV2SoapIn" />
+      <wsdl:output message="tns:VillaSearchV2SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="villa_searchHttpGet">
+    <wsdl:operation name="GoogleMapsLocators">
+      <wsdl:input message="tns:GoogleMapsLocatorsHttpGetIn" />
+      <wsdl:output message="tns:GoogleMapsLocatorsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VillaSearch">
+      <wsdl:input message="tns:VillaSearchHttpGetIn" />
+      <wsdl:output message="tns:VillaSearchHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyAvailability">
+      <wsdl:input message="tns:GetPropertyAvailabilityHttpGetIn" />
+      <wsdl:output message="tns:GetPropertyAvailabilityHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyReviews">
+      <wsdl:input message="tns:GetPropertyReviewsHttpGetIn" />
+      <wsdl:output message="tns:GetPropertyReviewsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChildLocations">
+      <wsdl:input message="tns:GetChildLocationsHttpGetIn" />
+      <wsdl:output message="tns:GetChildLocationsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryList">
+      <wsdl:input message="tns:GetCountryListHttpGetIn" />
+      <wsdl:output message="tns:GetCountryListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VillaSearchV2">
+      <wsdl:input message="tns:VillaSearchV2HttpGetIn" />
+      <wsdl:output message="tns:VillaSearchV2HttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="villa_searchSoap" type="tns:villa_searchSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GoogleMapsLocators">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/villa_search/GoogleMapsLocators" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VillaSearch">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/villa_search/VillaSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyAvailability">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/villa_search/GetPropertyAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyReviews">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/villa_search/GetPropertyReviews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChildLocations">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/villa_search/GetChildLocations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryList">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/villa_search/GetCountryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VillaSearchV2">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/villa_search/VillaSearchV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="villa_searchSoap12" type="tns:villa_searchSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GoogleMapsLocators">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/villa_search/GoogleMapsLocators" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VillaSearch">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/villa_search/VillaSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyAvailability">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/villa_search/GetPropertyAvailability" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyReviews">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/villa_search/GetPropertyReviews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChildLocations">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/villa_search/GetChildLocations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryList">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/villa_search/GetCountryList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VillaSearchV2">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/villa_search/VillaSearchV2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="villa_searchHttpGet" type="tns:villa_searchHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GoogleMapsLocators">
+      <http:operation location="/GoogleMapsLocators" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VillaSearch">
+      <http:operation location="/VillaSearch" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyAvailability">
+      <http:operation location="/GetPropertyAvailability" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyReviews">
+      <http:operation location="/GetPropertyReviews" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChildLocations">
+      <http:operation location="/GetChildLocations" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryList">
+      <http:operation location="/GetCountryList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VillaSearchV2">
+      <http:operation location="/VillaSearchV2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="villa_search">
+    <wsdl:port name="villa_searchSoap" binding="tns:villa_searchSoap">
+      <soap:address location="http://www.villarenters.com/VillarentersWebService/VillaSearch.asmx" />
+    </wsdl:port>
+    <wsdl:port name="villa_searchSoap12" binding="tns:villa_searchSoap12">
+      <soap12:address location="http://www.villarenters.com/VillarentersWebService/VillaSearch.asmx" />
+    </wsdl:port>
+    <wsdl:port name="villa_searchHttpGet" binding="tns:villa_searchHttpGet">
+      <http:address location="http://www.villarenters.com/VillarentersWebService/VillaSearch.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

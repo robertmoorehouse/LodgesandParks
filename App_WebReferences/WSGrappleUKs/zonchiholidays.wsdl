@@ -1,0 +1,1142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetPropertyReviews">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prop_ref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="website" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPropertyReviewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetPropertyReviewsResult" type="tns:PropertyReview" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PropertyReview">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="prop_ref" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reviews" type="tns:ArrayOfReview" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfReview">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Review" type="tns:Review" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Review">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ReviewDate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StarRating" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="By" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="From" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Article" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SavePropertyContents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prop_ref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prop_type" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="prop_type_id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="accommodation" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="traffic" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="shopping_trip" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="cultural" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="tourist" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="sight_seeing" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="seaside" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="luxury" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="romantic" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="relaxing" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="activity" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="family" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="business" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="budget" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="children" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="babies" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="pets" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="petsexplain" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="wheelchairs" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="wheelchairsexplain" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="elderly" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="living_seating" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dining_seating" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bathrooms" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="wcs" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sleeps" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="double_beds" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="twin_beds" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="single_beds" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cots" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ensuite" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sofa_beds" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sofa_beds_location" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dbl_sofa_beds" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="dbl_sofa_beds_location" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dbl_bunks" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="dbl_bunks_location" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="open_fire" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="tv" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="home_cinema" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="video" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="dvd" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="satellite" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="cassette" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="vinyl" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="cd" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="radio" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="computer" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="internet" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="telephone_in" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="telephone_out" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="fax" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="sauna" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="home_gym" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="snooker_pool_table" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="table_tennis" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="air_conditioning" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="central_heating" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="linen_provided" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="cooker" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="oven" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="microwave" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="fridge" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="freezer" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="dish_washer" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="washing_machine" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="clothes_drier" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="kettle" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="toaster" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="cutlery" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="crockery" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="glassware" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="pots" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="hair_drier" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="trouser_press" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="iron" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="garden" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="garden_aspect" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="patio" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="patio_aspect" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="balcony" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="balcony_aspect" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="views_sea" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="views_panoramic" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="views_other" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="summer_house" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="pool_private" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="pool_communal" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="pool_aspect" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tennis_court" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="barbeque" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="patio_heater" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="outside_lighting" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="parking" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="garage" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="extra" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="room_title" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="room_number" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="resturants" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="public_resturants" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bars_count" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="lounges_count" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dining_rooms" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="public_dining_rooms" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dry_cleaning" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="postal_service" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="express_checkout" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="left_luggage" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="safety_deposit" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="meeting_facilities" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="meeting_room_equipment_hire" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="free_internet" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="wireless_internet" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="photocopier" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="media_hire" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="lift" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="all_ground_floor" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="stairs_to_all" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="stairs_to_some" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="valet_parking" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="free_parking" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="hgv_parking" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="coach_parking" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="airport_parking" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="breakfast_weekday_times" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="breakfast_weekend_times" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dinner_weekday_times" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dinner_weekend_times" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lunch_weekend_times" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lunch_weekday_times" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="website" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePropertyContentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SavePropertyContentsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePropertyCharacteristics">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prop_ref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="airport" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="airport_distance" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="airport_units" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MapLink" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="Lat" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="Lon" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="non_smoking" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="loc_city" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="loc_town" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="loc_village" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="loc_rural" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="loc_beach" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="loc_seaside" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="loc_waterfront" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="loc_resort" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="loc_mountains" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="loc_countryside" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="loc_life" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="loc_quiet" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="user1" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="user1_distance" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="user1_units" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user2" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="user2_distance" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="user2_units" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user3" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="user3_distance" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="user3_units" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user4" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="user4_distance" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="user4_units" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="map_accuracy" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="website" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePropertyCharacteristicsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SavePropertyCharacteristicsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePropertyActivities">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prop_ref" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="beach" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="swimming" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sailing" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="waterskiing" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="boathire" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="windsurfing" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fishing" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="climbing" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="flying" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="walking" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cycling" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="mountainbiking" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="horseriding" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="skiing" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="golf" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tennis" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sportscenter" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="scuba" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sports_extra" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="historic" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="museum" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="zoo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="theatre_cinema" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="shopping" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="themepark" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="restaurant" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="food_shop" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="attraction_extra" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="website" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePropertyActivitiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SavePropertyActivitiesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="savepropertydescriptions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prop_ref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paragraph" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="website" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="savepropertydescriptionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="savepropertydescriptionsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="savepropertyimages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prop_ref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imageURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imagecaption" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="website" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="savepropertyimagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="savepropertyimagesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="savepropertylocations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prop_ref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="locationdescription" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="parentID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="LocationRef" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="website" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="savepropertylocationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="savepropertylocationsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePropertyReviews">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prop_ref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="first_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="last_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="booking_ref" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="val_for_money" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="met_expectations" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="would_rec" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="overall_rating" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="submitted_date" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="review_text" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="star_rating" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="town_from" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="review_approved" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prop_country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prop_title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="website" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePropertyReviewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SavePropertyReviewsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPropertyDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prop_ref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="website" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPropertyDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetPropertyDetailsResult" type="tns:VillaResults" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="VillaResults">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfRecords" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Villas" type="tns:ArrayOfVilla" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfVilla">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Villa" type="tns:Villa" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Villa">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="prop_ref" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="owner_ref" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PropType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Summary" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descriptions" type="tns:ArrayOfDescription" />
+          <s:element minOccurs="0" maxOccurs="1" name="PropImages" type="tns:ArrayOfPropImage" />
+          <s:element minOccurs="0" maxOccurs="1" name="Filename" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Locations" type="tns:ArrayOfLocation" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinPrice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxPrice" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sleeps" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DoubleBeds" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TwinBeds" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SingleBeds" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cots" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Bathrooms" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TV" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Satellite" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Telephone" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cooker" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Microwave" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fridge" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Freezer" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Internet" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CentralHeating" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LinenProvided" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AirConditioning" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Traffic" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Seaside" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SightSeeing" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Tourist" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Romantic" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Relaxing" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Activity" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pets" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="OpenFire" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Garden" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Patio" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Balcony" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrivatePool" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SharedPool" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TennisCourt" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Parking" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Airport" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AirportDistance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserFields" type="tns:ArrayOfUserField" />
+          <s:element minOccurs="0" maxOccurs="1" name="MapLink" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Lon" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Lat" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Extra" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Beach" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sailing" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Swimming" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Walking" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cycling" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HorseRiding" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Skiing" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Golf" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tennis" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Climbing" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nonesmoking" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="InstantBooking" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="VillarentersIndex" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExternalRef" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="website" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Features" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PriceRange" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Seo1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Seo2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Seo3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Seo4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Seo5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Seo6" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDescription">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Description" type="tns:Description" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Description">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Paragraph" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPropImage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PropImage" type="tns:PropImage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PropImage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ImageCaption" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageURL" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLocation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Location" type="tns:Location" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Location">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LocationRef" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ParentID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUserField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UserField" type="tns:UserField" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserDistance" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSearchResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strOwnerRefs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPropRefs" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intPropType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLocationRefs" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intMaxPrice" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intMinPrice" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intSleeps" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intItemsPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnEnableAvailabilitySearch" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFromYYYYMMDD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strToYYYYMMDD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intSortOrder" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="website" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Keyword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSearchResultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSearchResultsResult" type="tns:SearchResults" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SearchResults">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfRecords" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Villas" type="tns:ArrayOfSearchRes" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSearchRes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SearchRes" type="tns:SearchRes" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SearchRes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="prop_ref" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="owner_ref" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PropType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Summary" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descriptions" type="tns:ArrayOfDescription" />
+          <s:element minOccurs="0" maxOccurs="1" name="PropImages" type="tns:ArrayOfPropImage" />
+          <s:element minOccurs="0" maxOccurs="1" name="Locations" type="tns:ArrayOfLocation" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sleeps" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="website" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Features" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PriceRange" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLocations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ParentID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="website" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Filter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetLocationsResult" type="tns:ChildLocation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ChildLocation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RequestedParentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChildLocations" type="tns:ArrayOfLocation" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRefBySitecode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sitecode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productFilter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRefBySitecodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRefBySitecodeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllLocationsfromCatref">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CatRef" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="productfilter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllLocationsfromCatrefResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetAllLocationsfromCatrefResult" type="tns:ChildLocation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getlowestlocationforpropref">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prop_ref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productfilter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getlowestlocationforproprefResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getlowestlocationforproprefResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllLocationsfromDescription">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productfilter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllLocationsfromDescriptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetAllLocationsfromDescriptionResult" type="tns:ChildLocation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetALLPropertyDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strPropRefs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="website" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetALLPropertyDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetALLPropertyDetailsResult" type="tns:VillaResults" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetPropertyReviewsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPropertyReviews" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyReviewsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPropertyReviewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SavePropertyContentsSoapIn">
+    <wsdl:part name="parameters" element="tns:SavePropertyContents" />
+  </wsdl:message>
+  <wsdl:message name="SavePropertyContentsSoapOut">
+    <wsdl:part name="parameters" element="tns:SavePropertyContentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SavePropertyCharacteristicsSoapIn">
+    <wsdl:part name="parameters" element="tns:SavePropertyCharacteristics" />
+  </wsdl:message>
+  <wsdl:message name="SavePropertyCharacteristicsSoapOut">
+    <wsdl:part name="parameters" element="tns:SavePropertyCharacteristicsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SavePropertyActivitiesSoapIn">
+    <wsdl:part name="parameters" element="tns:SavePropertyActivities" />
+  </wsdl:message>
+  <wsdl:message name="SavePropertyActivitiesSoapOut">
+    <wsdl:part name="parameters" element="tns:SavePropertyActivitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="savepropertydescriptionsSoapIn">
+    <wsdl:part name="parameters" element="tns:savepropertydescriptions" />
+  </wsdl:message>
+  <wsdl:message name="savepropertydescriptionsSoapOut">
+    <wsdl:part name="parameters" element="tns:savepropertydescriptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="savepropertyimagesSoapIn">
+    <wsdl:part name="parameters" element="tns:savepropertyimages" />
+  </wsdl:message>
+  <wsdl:message name="savepropertyimagesSoapOut">
+    <wsdl:part name="parameters" element="tns:savepropertyimagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="savepropertylocationsSoapIn">
+    <wsdl:part name="parameters" element="tns:savepropertylocations" />
+  </wsdl:message>
+  <wsdl:message name="savepropertylocationsSoapOut">
+    <wsdl:part name="parameters" element="tns:savepropertylocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SavePropertyReviewsSoapIn">
+    <wsdl:part name="parameters" element="tns:SavePropertyReviews" />
+  </wsdl:message>
+  <wsdl:message name="SavePropertyReviewsSoapOut">
+    <wsdl:part name="parameters" element="tns:SavePropertyReviewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPropertyDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPropertyDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSearchResults" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSearchResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLocations" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRefBySitecodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRefBySitecode" />
+  </wsdl:message>
+  <wsdl:message name="GetRefBySitecodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRefBySitecodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllLocationsfromCatrefSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllLocationsfromCatref" />
+  </wsdl:message>
+  <wsdl:message name="GetAllLocationsfromCatrefSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllLocationsfromCatrefResponse" />
+  </wsdl:message>
+  <wsdl:message name="getlowestlocationforproprefSoapIn">
+    <wsdl:part name="parameters" element="tns:getlowestlocationforpropref" />
+  </wsdl:message>
+  <wsdl:message name="getlowestlocationforproprefSoapOut">
+    <wsdl:part name="parameters" element="tns:getlowestlocationforproprefResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllLocationsfromDescriptionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllLocationsfromDescription" />
+  </wsdl:message>
+  <wsdl:message name="GetAllLocationsfromDescriptionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllLocationsfromDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetALLPropertyDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetALLPropertyDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetALLPropertyDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetALLPropertyDetailsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="zonchiholidaysSoap">
+    <wsdl:operation name="GetPropertyReviews">
+      <wsdl:input message="tns:GetPropertyReviewsSoapIn" />
+      <wsdl:output message="tns:GetPropertyReviewsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePropertyContents">
+      <wsdl:input message="tns:SavePropertyContentsSoapIn" />
+      <wsdl:output message="tns:SavePropertyContentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePropertyCharacteristics">
+      <wsdl:input message="tns:SavePropertyCharacteristicsSoapIn" />
+      <wsdl:output message="tns:SavePropertyCharacteristicsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePropertyActivities">
+      <wsdl:input message="tns:SavePropertyActivitiesSoapIn" />
+      <wsdl:output message="tns:SavePropertyActivitiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="savepropertydescriptions">
+      <wsdl:input message="tns:savepropertydescriptionsSoapIn" />
+      <wsdl:output message="tns:savepropertydescriptionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="savepropertyimages">
+      <wsdl:input message="tns:savepropertyimagesSoapIn" />
+      <wsdl:output message="tns:savepropertyimagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="savepropertylocations">
+      <wsdl:input message="tns:savepropertylocationsSoapIn" />
+      <wsdl:output message="tns:savepropertylocationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePropertyReviews">
+      <wsdl:input message="tns:SavePropertyReviewsSoapIn" />
+      <wsdl:output message="tns:SavePropertyReviewsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyDetails">
+      <wsdl:input message="tns:GetPropertyDetailsSoapIn" />
+      <wsdl:output message="tns:GetPropertyDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchResults">
+      <wsdl:input message="tns:GetSearchResultsSoapIn" />
+      <wsdl:output message="tns:GetSearchResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocations">
+      <wsdl:input message="tns:GetLocationsSoapIn" />
+      <wsdl:output message="tns:GetLocationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRefBySitecode">
+      <wsdl:input message="tns:GetRefBySitecodeSoapIn" />
+      <wsdl:output message="tns:GetRefBySitecodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocationsfromCatref">
+      <wsdl:input message="tns:GetAllLocationsfromCatrefSoapIn" />
+      <wsdl:output message="tns:GetAllLocationsfromCatrefSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getlowestlocationforpropref">
+      <wsdl:input message="tns:getlowestlocationforproprefSoapIn" />
+      <wsdl:output message="tns:getlowestlocationforproprefSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocationsfromDescription">
+      <wsdl:input message="tns:GetAllLocationsfromDescriptionSoapIn" />
+      <wsdl:output message="tns:GetAllLocationsfromDescriptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetALLPropertyDetails">
+      <wsdl:input message="tns:GetALLPropertyDetailsSoapIn" />
+      <wsdl:output message="tns:GetALLPropertyDetailsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="zonchiholidaysSoap" type="tns:zonchiholidaysSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPropertyReviews">
+      <soap:operation soapAction="http://tempuri.org/GetPropertyReviews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePropertyContents">
+      <soap:operation soapAction="http://tempuri.org/SavePropertyContents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePropertyCharacteristics">
+      <soap:operation soapAction="http://tempuri.org/SavePropertyCharacteristics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePropertyActivities">
+      <soap:operation soapAction="http://tempuri.org/SavePropertyActivities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="savepropertydescriptions">
+      <soap:operation soapAction="http://tempuri.org/savepropertydescriptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="savepropertyimages">
+      <soap:operation soapAction="http://tempuri.org/savepropertyimages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="savepropertylocations">
+      <soap:operation soapAction="http://tempuri.org/savepropertylocations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePropertyReviews">
+      <soap:operation soapAction="http://tempuri.org/SavePropertyReviews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyDetails">
+      <soap:operation soapAction="http://tempuri.org/GetPropertyDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchResults">
+      <soap:operation soapAction="http://tempuri.org/GetSearchResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocations">
+      <soap:operation soapAction="http://tempuri.org/GetLocations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRefBySitecode">
+      <soap:operation soapAction="http://tempuri.org/GetRefBySitecode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocationsfromCatref">
+      <soap:operation soapAction="http://tempuri.org/GetAllLocationsfromCatref" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getlowestlocationforpropref">
+      <soap:operation soapAction="http://tempuri.org/getlowestlocationforpropref" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocationsfromDescription">
+      <soap:operation soapAction="http://tempuri.org/GetAllLocationsfromDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetALLPropertyDetails">
+      <soap:operation soapAction="http://tempuri.org/GetALLPropertyDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="zonchiholidaysSoap12" type="tns:zonchiholidaysSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPropertyReviews">
+      <soap12:operation soapAction="http://tempuri.org/GetPropertyReviews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePropertyContents">
+      <soap12:operation soapAction="http://tempuri.org/SavePropertyContents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePropertyCharacteristics">
+      <soap12:operation soapAction="http://tempuri.org/SavePropertyCharacteristics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePropertyActivities">
+      <soap12:operation soapAction="http://tempuri.org/SavePropertyActivities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="savepropertydescriptions">
+      <soap12:operation soapAction="http://tempuri.org/savepropertydescriptions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="savepropertyimages">
+      <soap12:operation soapAction="http://tempuri.org/savepropertyimages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="savepropertylocations">
+      <soap12:operation soapAction="http://tempuri.org/savepropertylocations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePropertyReviews">
+      <soap12:operation soapAction="http://tempuri.org/SavePropertyReviews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetPropertyDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchResults">
+      <soap12:operation soapAction="http://tempuri.org/GetSearchResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocations">
+      <soap12:operation soapAction="http://tempuri.org/GetLocations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRefBySitecode">
+      <soap12:operation soapAction="http://tempuri.org/GetRefBySitecode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocationsfromCatref">
+      <soap12:operation soapAction="http://tempuri.org/GetAllLocationsfromCatref" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getlowestlocationforpropref">
+      <soap12:operation soapAction="http://tempuri.org/getlowestlocationforpropref" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocationsfromDescription">
+      <soap12:operation soapAction="http://tempuri.org/GetAllLocationsfromDescription" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetALLPropertyDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetALLPropertyDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="zonchiholidays">
+    <wsdl:port name="zonchiholidaysSoap" binding="tns:zonchiholidaysSoap">
+      <soap:address location="http://www.grappleuk.com/internalWebServices/zonchiholidays.asmx" />
+    </wsdl:port>
+    <wsdl:port name="zonchiholidaysSoap12" binding="tns:zonchiholidaysSoap12">
+      <soap12:address location="http://www.grappleuk.com/internalWebServices/zonchiholidays.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

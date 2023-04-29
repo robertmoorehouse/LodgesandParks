@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/VillarentersWebService/priceChecker" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/VillarentersWebService/priceChecker" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/VillarentersWebService/priceChecker">
+      <s:element name="checkAvailability">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prop_ref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="start_date_YYYYMMDD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="end_date_YYYYMMDD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="number_nights" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="people_num" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkAvailabilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="checkAvailabilityResult" type="tns:Availability" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Availability">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="prop_ref" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="start_date_YYYYMMDD" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="end_date_YYYYMMDD" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="last_night_YYYYMMDD" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="people_number" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="number_of_nights" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="dates_ok" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="avail_error" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="mainPriceCalc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prop_ref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="start_date_YYYYMMDD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="end_date_YYYYMMDD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="number_nights" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="people_num" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="mainPriceCalcResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="mainPriceCalcResult" type="tns:mainPrice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="mainPrice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="currency" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="mainPrice" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="main_error" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="discountPriceCalc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prop_ref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="start_date_YYYYMMDD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="end_date_YYYYMMDD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="number_nights" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="people_num" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="promo_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="promo_rcam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="discountPriceCalcResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="discountPriceCalcResult" type="tns:discountPrice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="discountPrice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="discount_text" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="priceCheckText" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ownerDiscount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="autoDiscountLate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="autoDiscountLong" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="autoDiscountEarly" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="promo_owner" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="promo_discount_type" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="promo_discount_curr" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="promo_discount_percentage" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="discount_error" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ExtrasPriceCalc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prop_ref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="start_date_YYYYMMDD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="end_date_YYYYMMDD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="number_nights" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="people_num" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="chosen_Extras" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExtrasPriceCalcResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExtrasPriceCalcResult" type="tns:extraPrice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="extraPrice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CompulsoryExtraText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OptionalExtraText" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="extraPrice" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="extraPriceCurrency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="extrasChosen" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="extra_error" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="extraList" type="tns:ArrayOfExtraListOptions" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfExtraListOptions">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="extraListOptions" type="tns:extraListOptions" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="extraListOptions">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="extra_id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="extra_text" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="extra_compulsory" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="extra_price" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="extra_picked" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="extra_currency" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="extra_counter_allow" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="extra_counter" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FullPriceCalc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prop_ref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="start_date_YYYYMMDD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="end_date_YYYYMMDD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="number_nights" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="people_num" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="chosen_extras" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="promo_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="promo_rcam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FullPriceCalcResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FullPriceCalcResult" type="tns:FullPrice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FullPrice">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="availability" type="tns:Availability" />
+          <s:element minOccurs="1" maxOccurs="1" name="mainPrice" type="tns:mainPrice" />
+          <s:element minOccurs="1" maxOccurs="1" name="discountPrice" type="tns:discountPrice" />
+          <s:element minOccurs="1" maxOccurs="1" name="extraPrice" type="tns:extraPrice" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Availability" type="tns:Availability" />
+      <s:element name="mainPrice" type="tns:mainPrice" />
+      <s:element name="discountPrice" type="tns:discountPrice" />
+      <s:element name="extraPrice" type="tns:extraPrice" />
+      <s:element name="FullPrice" type="tns:FullPrice" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="checkAvailabilitySoapIn">
+    <wsdl:part name="parameters" element="tns:checkAvailability" />
+  </wsdl:message>
+  <wsdl:message name="checkAvailabilitySoapOut">
+    <wsdl:part name="parameters" element="tns:checkAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="mainPriceCalcSoapIn">
+    <wsdl:part name="parameters" element="tns:mainPriceCalc" />
+  </wsdl:message>
+  <wsdl:message name="mainPriceCalcSoapOut">
+    <wsdl:part name="parameters" element="tns:mainPriceCalcResponse" />
+  </wsdl:message>
+  <wsdl:message name="discountPriceCalcSoapIn">
+    <wsdl:part name="parameters" element="tns:discountPriceCalc" />
+  </wsdl:message>
+  <wsdl:message name="discountPriceCalcSoapOut">
+    <wsdl:part name="parameters" element="tns:discountPriceCalcResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExtrasPriceCalcSoapIn">
+    <wsdl:part name="parameters" element="tns:ExtrasPriceCalc" />
+  </wsdl:message>
+  <wsdl:message name="ExtrasPriceCalcSoapOut">
+    <wsdl:part name="parameters" element="tns:ExtrasPriceCalcResponse" />
+  </wsdl:message>
+  <wsdl:message name="FullPriceCalcSoapIn">
+    <wsdl:part name="parameters" element="tns:FullPriceCalc" />
+  </wsdl:message>
+  <wsdl:message name="FullPriceCalcSoapOut">
+    <wsdl:part name="parameters" element="tns:FullPriceCalcResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkAvailabilityHttpGetIn">
+    <wsdl:part name="prop_ref" type="s:string" />
+    <wsdl:part name="start_date_YYYYMMDD" type="s:string" />
+    <wsdl:part name="end_date_YYYYMMDD" type="s:string" />
+    <wsdl:part name="number_nights" type="s:string" />
+    <wsdl:part name="people_num" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="checkAvailabilityHttpGetOut">
+    <wsdl:part name="Body" element="tns:Availability" />
+  </wsdl:message>
+  <wsdl:message name="mainPriceCalcHttpGetIn">
+    <wsdl:part name="prop_ref" type="s:string" />
+    <wsdl:part name="start_date_YYYYMMDD" type="s:string" />
+    <wsdl:part name="end_date_YYYYMMDD" type="s:string" />
+    <wsdl:part name="number_nights" type="s:string" />
+    <wsdl:part name="people_num" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="mainPriceCalcHttpGetOut">
+    <wsdl:part name="Body" element="tns:mainPrice" />
+  </wsdl:message>
+  <wsdl:message name="discountPriceCalcHttpGetIn">
+    <wsdl:part name="prop_ref" type="s:string" />
+    <wsdl:part name="start_date_YYYYMMDD" type="s:string" />
+    <wsdl:part name="end_date_YYYYMMDD" type="s:string" />
+    <wsdl:part name="number_nights" type="s:string" />
+    <wsdl:part name="people_num" type="s:string" />
+    <wsdl:part name="promo_code" type="s:string" />
+    <wsdl:part name="promo_rcam" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="discountPriceCalcHttpGetOut">
+    <wsdl:part name="Body" element="tns:discountPrice" />
+  </wsdl:message>
+  <wsdl:message name="ExtrasPriceCalcHttpGetIn">
+    <wsdl:part name="prop_ref" type="s:string" />
+    <wsdl:part name="start_date_YYYYMMDD" type="s:string" />
+    <wsdl:part name="end_date_YYYYMMDD" type="s:string" />
+    <wsdl:part name="number_nights" type="s:string" />
+    <wsdl:part name="people_num" type="s:string" />
+    <wsdl:part name="chosen_Extras" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExtrasPriceCalcHttpGetOut">
+    <wsdl:part name="Body" element="tns:extraPrice" />
+  </wsdl:message>
+  <wsdl:message name="FullPriceCalcHttpGetIn">
+    <wsdl:part name="type" type="s:string" />
+    <wsdl:part name="prop_ref" type="s:string" />
+    <wsdl:part name="start_date_YYYYMMDD" type="s:string" />
+    <wsdl:part name="end_date_YYYYMMDD" type="s:string" />
+    <wsdl:part name="number_nights" type="s:string" />
+    <wsdl:part name="people_num" type="s:string" />
+    <wsdl:part name="chosen_extras" type="s:string" />
+    <wsdl:part name="promo_code" type="s:string" />
+    <wsdl:part name="promo_rcam" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FullPriceCalcHttpGetOut">
+    <wsdl:part name="Body" element="tns:FullPrice" />
+  </wsdl:message>
+  <wsdl:portType name="priceCheckerSoap">
+    <wsdl:operation name="checkAvailability">
+      <wsdl:input message="tns:checkAvailabilitySoapIn" />
+      <wsdl:output message="tns:checkAvailabilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="mainPriceCalc">
+      <wsdl:input message="tns:mainPriceCalcSoapIn" />
+      <wsdl:output message="tns:mainPriceCalcSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="discountPriceCalc">
+      <wsdl:input message="tns:discountPriceCalcSoapIn" />
+      <wsdl:output message="tns:discountPriceCalcSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExtrasPriceCalc">
+      <wsdl:input message="tns:ExtrasPriceCalcSoapIn" />
+      <wsdl:output message="tns:ExtrasPriceCalcSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FullPriceCalc">
+      <wsdl:input message="tns:FullPriceCalcSoapIn" />
+      <wsdl:output message="tns:FullPriceCalcSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="priceCheckerHttpGet">
+    <wsdl:operation name="checkAvailability">
+      <wsdl:input message="tns:checkAvailabilityHttpGetIn" />
+      <wsdl:output message="tns:checkAvailabilityHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="mainPriceCalc">
+      <wsdl:input message="tns:mainPriceCalcHttpGetIn" />
+      <wsdl:output message="tns:mainPriceCalcHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="discountPriceCalc">
+      <wsdl:input message="tns:discountPriceCalcHttpGetIn" />
+      <wsdl:output message="tns:discountPriceCalcHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExtrasPriceCalc">
+      <wsdl:input message="tns:ExtrasPriceCalcHttpGetIn" />
+      <wsdl:output message="tns:ExtrasPriceCalcHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FullPriceCalc">
+      <wsdl:input message="tns:FullPriceCalcHttpGetIn" />
+      <wsdl:output message="tns:FullPriceCalcHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="priceCheckerSoap" type="tns:priceCheckerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="checkAvailability">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/priceChecker/checkAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mainPriceCalc">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/priceChecker/mainPriceCalc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="discountPriceCalc">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/priceChecker/discountPriceCalc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExtrasPriceCalc">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/priceChecker/ExtrasPriceCalc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FullPriceCalc">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/priceChecker/FullPriceCalc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="priceCheckerSoap12" type="tns:priceCheckerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="checkAvailability">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/priceChecker/checkAvailability" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mainPriceCalc">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/priceChecker/mainPriceCalc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="discountPriceCalc">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/priceChecker/discountPriceCalc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExtrasPriceCalc">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/priceChecker/ExtrasPriceCalc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FullPriceCalc">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/priceChecker/FullPriceCalc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="priceCheckerHttpGet" type="tns:priceCheckerHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="checkAvailability">
+      <http:operation location="/checkAvailability" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mainPriceCalc">
+      <http:operation location="/mainPriceCalc" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="discountPriceCalc">
+      <http:operation location="/discountPriceCalc" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExtrasPriceCalc">
+      <http:operation location="/ExtrasPriceCalc" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FullPriceCalc">
+      <http:operation location="/FullPriceCalc" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="priceChecker">
+    <wsdl:port name="priceCheckerSoap" binding="tns:priceCheckerSoap">
+      <soap:address location="http://www.villarenters.com/VillarentersWebService/priceChecker.asmx" />
+    </wsdl:port>
+    <wsdl:port name="priceCheckerSoap12" binding="tns:priceCheckerSoap12">
+      <soap12:address location="http://www.villarenters.com/VillarentersWebService/priceChecker.asmx" />
+    </wsdl:port>
+    <wsdl:port name="priceCheckerHttpGet" binding="tns:priceCheckerHttpGet">
+      <http:address location="http://www.villarenters.com/VillarentersWebService/priceChecker.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

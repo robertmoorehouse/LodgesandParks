@@ -1,0 +1,17 @@
+C:\grapple\lodges\internalWebServices\internalWebServices\bin\internalWebServices.dll
+C:\grapple\lodges\internalWebServices\internalWebServices\bin\internalWebServices.pdb
+C:\grapple\lodges\internalWebServices\internalWebServices\bin\internalWebServices.xml
+C:\grapple\lodges\internalWebServices\internalWebServices\obj\Debug\ResolveAssemblyReference.cache
+C:\grapple\lodges\internalWebServices\internalWebServices\obj\Debug\internalWebServices.Resources.resources
+C:\grapple\lodges\internalWebServices\internalWebServices\obj\Debug\internalWebServices.vbproj.GenerateResource.Cache
+C:\grapple\lodges\internalWebServices\internalWebServices\obj\Debug\internalWebServices.dll
+C:\grapple\lodges\internalWebServices\internalWebServices\obj\Debug\internalWebServices.xml
+C:\grapple\lodges\internalWebServices\internalWebServices\obj\Debug\internalWebServices.pdb
+C:\grapple\lodges\internalWebServices\internalWebServices\obj\Release\ResolveAssemblyReference.cache
+C:\grapple\lodges\internalWebServices\internalWebServices\obj\Release\internalWebServices.Resources.resources
+C:\grapple\lodges\internalWebServices\internalWebServices\obj\Release\internalWebServices.vbproj.GenerateResource.Cache
+C:\grapple\lodges\internalWebServices\internalWebServices\obj\Release\internalWebServices.dll
+C:\grapple\lodges\internalWebServices\internalWebServices\obj\Release\internalWebServices.xml
+C:\grapple\lodges\internalWebServices\internalWebServices\obj\Release\internalWebServices.pdb
+C:\grapple\lodges\internalWebServices\internalWebServices\obj\Release\internalWebServices.XmlSerializers.dll
+C:\grapple\lodges\internalWebServices\internalWebServices\bin\internalWebServices.XmlSerializers.dll

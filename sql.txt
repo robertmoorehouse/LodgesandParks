@@ -1,0 +1,29 @@
+CREATE PROCEDURE [save_property_review]
+
+(
+	@prop_ref	varchar(50),
+	@firstname	varchar(100),
+	@lastname	varchar(100),
+	@email_address	varchar(300),
+	@booking_ref	varchar(50),
+	@val_for_money	int,
+	@met_expectations	int,
+	@would_rec	int,
+	@overall_rating	int,
+	@star_rating	int,
+	@review_text	ntext,
+	@town_from	varchar(300),
+	@submitted_date	varchar(20)
+)
+
+AS
+
+if (charindex('url=http', @review_text) < 1)
+begin
+	Insert INTO prop_reviews
+		(prop_ref, firstname, lastname, email_address, booking_ref, val_for_money, met_expectations, would_rec, overall_rating, star_rating, review_text, review_approved, town_from, submitted_date)
+	values
+		(@prop_ref, @firstname, @lastname, @email_address, @booking_ref, @val_for_money, @met_expectations, @would_rec, @overall_rating, @star_rating, @review_text, 0, @town_from, submitted_date)
+
+	
+end

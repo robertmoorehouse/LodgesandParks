@@ -1,0 +1,60 @@
+﻿/* CSS for Lodges and Parks */
+
+.headerlinks_shell a {
+	position: relative;
+	background-color: #ffffff;
+	border-right: 4px solid #FFDCA0;
+	border-top: 4px solid #FFDCA0;
+	border-bottom: 4px solid #FFDCA0; 
+	margin: 0px; 
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+    font-family: Verdana;
+	font-weight: bold; 
+	font-size: 12px;
+	text-decoration: underline;
+	color: #f1996d; 
+	float: left;
+}
+
+.headerlinks_shell a:hover {
+	background-color: #f1996d; 
+	border-bottom: 4px solid #FFDCA0;
+	text-decoration: none;
+	color: #ffffff; 
+}
+
+.headerlinks_shell a.lodgesandparks 
+{
+    border-left: 4px solid #FFDCA0;
+}
+
+.headerlinks_shell a.villa 
+{
+    background-color:#f1996d;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+.header_tabs_selected {
+	position: relative;
+	background-color: #f1996d;
+	border-right: 4px solid #FFDCA0;
+	border-top: 4px solid #FFDCA0;
+	border-bottom: 4px solid #FFDCA0; 
+	margin: 0px; 
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+    font-family: Verdana;
+	font-weight: bold; 
+	font-size: 12px;
+	text-decoration: none;
+	color: #ffffff; 
+	float: left;
+}
+

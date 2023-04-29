@@ -1,0 +1,9 @@
+C:\grapple\internalWebServices\bin\internalWebServices.dll
+C:\grapple\internalWebServices\bin\internalWebServices.pdb
+C:\grapple\internalWebServices\bin\internalWebServices.xml
+C:\grapple\internalWebServices\obj\Debug\ResolveAssemblyReference.cache
+C:\grapple\internalWebServices\obj\Debug\internalWebServices.Resources.resources
+C:\grapple\internalWebServices\obj\Debug\internalWebServices.vbproj.GenerateResource.Cache
+C:\grapple\internalWebServices\obj\Debug\internalWebServices.dll
+C:\grapple\internalWebServices\obj\Debug\internalWebServices.xml
+C:\grapple\internalWebServices\obj\Debug\internalWebServices.pdb

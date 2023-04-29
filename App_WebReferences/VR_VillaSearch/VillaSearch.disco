@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://www.villarenters.com/VillarentersWebService/VillaSearch.asmx?wsdl" docRef="http://www.villarenters.com/VillarentersWebService/VillaSearch.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://www.villarenters.com/VillarentersWebService/VillaSearch.asmx" xmlns:q1="http://tempuri.org/VillarentersWebService/villa_search" binding="q1:villa_searchSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://www.villarenters.com/VillarentersWebService/VillaSearch.asmx" xmlns:q2="http://tempuri.org/VillarentersWebService/villa_search" binding="q2:villa_searchSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

@@ -1,0 +1,11 @@
+# robots.txt for grapple sites
+
+User-agent: *
+Disallow: /admin/
+Disallow: /App_Code/
+Disallow: /datacollector/
+Disallow: /App_Themes/
+Disallow: /css/
+Disallow: /internalWebServices/
+Disallow: /psds/
+Disallow: /App_Themes/

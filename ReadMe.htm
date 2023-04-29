@@ -1,0 +1,528 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>Notes on the Flash Slide show</title>
+
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+pre
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+@page Section1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US>
+
+<div class=Section1>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>This
+site is a simple demo site for affiliates that wish to use or gain helpful
+hints on how to use the xml services that Villarenters supplies. Each asp page
+has inline documentation to help you understand how we are using the xml. </span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'><br>
+Note : This site has live data if you make a booking it will be processed. If
+you want to make any test bookings please contact the Villarenters support desk.
+</span></p>
+
+<p class=MsoNormal><b><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>File
+Details</span></b></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>Inc/Top.asp
+ is used in each page. The logo.gif is used in this file. Title, keywords etc
+are also in here</span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>Inc/bottom.asp
+is used in each page. This contains the rental systems logo and link. We
+request that this logo and link remain on your site.</span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>Css/demo.css
+is used to control the colours of the website</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-36.0pt'><span
+lang=EN-GB style='font-size:8.0pt;font-family:Arial'>                This page contains
+the classes that control the colour, background colour and text size of the
+font and tables used.</span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>Booking.asp</span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>This
+page only contains a simple Iframe that calls the <b>advert_price.asp</b> page.
+This is currently the entry point into villarenters. </span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>We
+do supply a pricing tool so this entry point will likely be changed to the
+login page just before you confirm your booking. </span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>Do
+not forget to use your rag and cam codes.</span></p>
+
+<p class=MsoNormal><b><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>Notes
+on the Flash Slide show</span></b></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>The
+flash slideshow uses an in house developed system. You are allowed to use this
+flash app but it will not be supported by Villarenters.</span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>The
+Flash application gets its data from an xml file that contains a list of
+images. This file uses the images.asp file in the slideshow folder.</span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>The
+xml follows the format below</span></p>
+
+<pre><span class=pi><span style='font-size:8.0pt;font-family:Arial'>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span></pre><pre><span
+style='font-size:8.0pt;font-family:Arial'>&lt;<span class=start-tag>gallery</span>&gt;</span></pre><pre><span
+style='font-size:8.0pt;font-family:Arial'>&lt;<span class=start-tag>album</span><span
+class=attribute-name> id</span>=<span class=attribute-value>'Property 1933' </span><span
+class=attribute-name>description</span>=<span class=attribute-value>'Property Advert Pictures' </span><span
+class=attribute-name>lgPath</span>=<span class=attribute-value>'' </span><span
+class=attribute-name>startHere</span>=<span class=attribute-value>'true'</span>&gt;</span></pre><pre><span
+style='font-size:8.0pt;font-family:Arial'>&lt;<span class=start-tag>img</span><span
+class=attribute-name> src</span>=<span class=attribute-value>'http://www.rentalsystems.com/data/images/1933/1933_1.jpg'  </span><span
+class=attribute-name>caption</span>=<span class=attribute-value>' '</span><span
+class=attribute-name>/</span>&gt;</span></pre><pre><span style='font-size:8.0pt;
+font-family:Arial'>&lt;<span class=start-tag>img</span><span
+class=attribute-name> src</span>=<span class=attribute-value>'http://www.rentalsystems.com/data/images/1933/1933_2.jpg'  </span><span
+class=attribute-name>caption</span>=<span class=attribute-value>' '</span><span
+class=attribute-name>/</span>&gt;</span></pre><pre><span style='font-size:8.0pt;
+font-family:Arial'>&lt;<span class=start-tag>img</span><span
+class=attribute-name> src</span>=<span class=attribute-value>'http://www.rentalsystems.com/data/images/1933/1933_3.jpg'  </span><span
+class=attribute-name>caption</span>=<span class=attribute-value>' '</span><span
+class=attribute-name>/</span>&gt;</span></pre><pre><span style='font-size:8.0pt;
+font-family:Arial'>&lt;<span class=start-tag>img</span><span
+class=attribute-name> src</span>=<span class=attribute-value>'http://www.rentalsystems.com/data/images/1933/1933_4.jpg'  </span><span
+class=attribute-name>caption</span>=<span class=attribute-value>' '</span><span
+class=attribute-name>/</span>&gt;</span></pre><pre><span style='font-size:8.0pt;
+font-family:Arial'>&lt;/<span class=end-tag>album</span>&gt;</span></pre><pre><span
+style='font-size:8.0pt;font-family:Arial'>&lt;/<span class=end-tag>gallery</span>&gt;</span></pre>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>The
+xml service is used by the images.asp to create the correctly formatted XML</span></p>
+
+<p class=MsoNormal><b><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>Notes
+on accessing XML using the Microsoft DOM object</span></b></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>This
+is the method I use to select the values from an xml stream.There are other way
+to access xml data but I prefer this.</span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>The
+code below is looking for the <b>villa</b> element (this contains the data for
+each villa)</span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>The
+(0) indicates that the first villa result should be used. For example we would
+use this in the villa details page where there is only one villa anyhow,</span></p>
+
+<p class=MsoNormal><b><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>xml.getElementsByTagName(&quot;Villa&quot;)(0).childNodes(3).firstChild.nodevalue</span></b></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>If
+I wanted to access multiple villas the code would need to be added into a loop.
+This would be handy for the results page.</span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>For
+intcount=0 to 100</span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>xml.getElementsByTagName(&quot;Villa&quot;)(
+intcount).childNodes(3).firstChild.nodevalue</span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>next</span></b></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>The
+second part of the code the .childNodes(3).firstChild.nodevalue accesses node
+number threes value.</span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>There
+is a more friendly way of doing things and I have used it now and then such as.</span></p>
+
+<p class=MsoNormal><b><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>xml.getElementsByTagName(&quot;Title&quot;)(3).firstChild.nodeValue</span></b><span
+lang=EN-GB style='font-size:8.0pt;font-family:Arial'> which accesses the Title
+of the third result directly. </span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='font-size:8.0pt;font-family:Arial'>In
+the xml below you can see what field is what number.</span></p>
+
+<p class=MsoNormal><b><span lang=EN-GB>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-left:54.0pt;text-indent:18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>0.     prop_ref </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:8.0pt;font-family:Arial'>owner_ref</span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:8.0pt;font-family:Arial'>PropType </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:8.0pt;font-family:Arial'>Title </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:8.0pt;font-family:Arial'>Summary </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:8.0pt;font-family:Arial'>Descriptions </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:8.0pt;font-family:Arial'>PropImages </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:8.0pt;font-family:Arial'>Filename </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:8.0pt;font-family:Arial'>Locations </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>9.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:8.0pt;font-family:Arial'>MinPrice </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>10.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>MaxPrice </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>11.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Currency </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>12.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Sleeps </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>13.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>DoubleBeds </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>14.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>TwinBeds </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>15.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>SingleBeds </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>16.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Cots </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>17.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Bathrooms </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>18.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>TV </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>19.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Satellite </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>20.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Telephone </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>21.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Cooker </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>22.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Microwave </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>23.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Fridge </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>24.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Freezer </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>25.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Internet </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>26.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>CentralHeating </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>27.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>LinenProvided </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>28.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>AirConditioning </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>29.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Traffic </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>30.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span 
+style='font-size:8.0pt;font-family:Arial'>Seaside</span><span style='font-size:8.0pt;
+font-family:Arial'> </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>31.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>SightSeeing </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>32.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Tourist </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>33.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Romantic </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>34.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Relaxing </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>35.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Activity </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>36.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Pets </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>37.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>OpenFire </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>38.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Garden </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>39.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Patio </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>40.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Balcony </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>41.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>PrivatePool </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>42.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>SharedPool </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>43.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>TennisCourt </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>44.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Parking </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>45.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Airport </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>46.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>AirportDistance </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>47.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>UserFields </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>48.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>MapLink </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>49.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Lon </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>50.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Lat </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>51.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Extra </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>52.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Beach </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>53.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Sailing </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>54.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Swimming </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>55.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Walking </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>56.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Cycling </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>57.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>HorseRiding </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>58.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Skiing </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>59.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Golf </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>60.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Tennis </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>61.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Climbing </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>62.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>Nonesmoking </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>63.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>InstantBooking </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt;text-autospace:
+none'><span style='font-size:8.0pt;font-family:Arial'>64.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;font-family:Arial'>VillarentersIndex </span></p>
+
+<p class=MsoNormal style='margin-left:90.0pt;text-indent:-18.0pt'><span
+lang=EN-GB style='font-size:8.0pt;font-family:Arial'>65.<span 
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:8.0pt;font-family:Arial'>ExternalRef </span></p>
+
+</div>
+
+</body>
+
+</html>

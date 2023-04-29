@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/VillarentersWebService/SearchEngine" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/VillarentersWebService/SearchEngine" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/VillarentersWebService/SearchEngine">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="fetchNextLocations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="searchType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="parentRef" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="fetchNextLocationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fetchNextLocationsResult" type="tns:childLocations" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="childLocations">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="errorCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="childLocations" type="tns:ArrayOfChildLocation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfChildLocation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="childLocation" type="tns:childLocation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="childLocation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="catRef" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="catName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="propCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="fetchSearchCriteria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UniqueKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="fetchSearchCriteriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fetchSearchCriteriaResult" type="tns:searchCriteria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="searchCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Keywords" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nights" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PartySize" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GiveTake" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CatRef" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="errorCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="selectedLocations" type="tns:ArrayOfSelectedLocations" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSelectedLocations">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="selectedLocations" type="tns:selectedLocations" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="selectedLocations">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="catRef" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="fetchSearchResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UniqueKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IndexPage" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="fetchSearchResultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fetchSearchResultsResult" type="tns:searchResults" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="searchResults">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="errorCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="searchResults" type="tns:ArrayOfResultProperty" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfResultProperty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="resultProperty" type="tns:resultProperty" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="resultProperty">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="propRef" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="saveSearchQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="partnerID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="partnerKey" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="searchType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="catRef" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="numNights" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateFlex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="minSleeps" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="minPrice" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxPrice" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="keywordText" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="propType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="filter1" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="filter2" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="filter3" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="filter4" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="filter5" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveSearchQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="saveSearchQueryResult" type="tns:searchKey" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="searchKey">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UniqueKey" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="errorCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="fetchPropertyData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="searchType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="propRef" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="fetchPropertyDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fetchPropertyDataResult" type="tns:propertyData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="propertyData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="propTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="propLink" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="propImage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="propSummary" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="propTown" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="propCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="propStyle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="propAccom" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="minPrice" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="propCurrency" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="propSleeps" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="propInstant" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="propStars" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="userRating" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="propLon" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="propLat" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="errorMsg" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="fetchLocationData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="catRef" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="fetchLocationDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fetchLocationDataResult" type="tns:locationData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="locationData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="locationName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="rentalCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="saleCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="bbCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="hotelCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="locationPath" type="tns:ArrayOfLocationPath" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLocationPath">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="locationPath" type="tns:locationPath" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="locationPath">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="catRef" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="locationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="locationProperties" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="locationGuide" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="childLocations" type="tns:childLocations" />
+      <s:element name="searchCriteria" type="tns:searchCriteria" />
+      <s:element name="searchResults" type="tns:searchResults" />
+      <s:element name="searchKey" type="tns:searchKey" />
+      <s:element name="propertyData" type="tns:propertyData" />
+      <s:element name="locationData" type="tns:locationData" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="fetchNextLocationsSoapIn">
+    <wsdl:part name="parameters" element="tns:fetchNextLocations" />
+  </wsdl:message>
+  <wsdl:message name="fetchNextLocationsSoapOut">
+    <wsdl:part name="parameters" element="tns:fetchNextLocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="fetchSearchCriteriaSoapIn">
+    <wsdl:part name="parameters" element="tns:fetchSearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="fetchSearchCriteriaSoapOut">
+    <wsdl:part name="parameters" element="tns:fetchSearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="fetchSearchResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:fetchSearchResults" />
+  </wsdl:message>
+  <wsdl:message name="fetchSearchResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:fetchSearchResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveSearchQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:saveSearchQuery" />
+  </wsdl:message>
+  <wsdl:message name="saveSearchQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:saveSearchQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="fetchPropertyDataSoapIn">
+    <wsdl:part name="parameters" element="tns:fetchPropertyData" />
+  </wsdl:message>
+  <wsdl:message name="fetchPropertyDataSoapOut">
+    <wsdl:part name="parameters" element="tns:fetchPropertyDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="fetchLocationDataSoapIn">
+    <wsdl:part name="parameters" element="tns:fetchLocationData" />
+  </wsdl:message>
+  <wsdl:message name="fetchLocationDataSoapOut">
+    <wsdl:part name="parameters" element="tns:fetchLocationDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="fetchNextLocationsHttpGetIn">
+    <wsdl:part name="searchType" type="s:string" />
+    <wsdl:part name="parentRef" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="fetchNextLocationsHttpGetOut">
+    <wsdl:part name="Body" element="tns:childLocations" />
+  </wsdl:message>
+  <wsdl:message name="fetchSearchCriteriaHttpGetIn">
+    <wsdl:part name="UniqueKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="fetchSearchCriteriaHttpGetOut">
+    <wsdl:part name="Body" element="tns:searchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="fetchSearchResultsHttpGetIn">
+    <wsdl:part name="UniqueKey" type="s:string" />
+    <wsdl:part name="IndexPage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="fetchSearchResultsHttpGetOut">
+    <wsdl:part name="Body" element="tns:searchResults" />
+  </wsdl:message>
+  <wsdl:message name="saveSearchQueryHttpGetIn">
+    <wsdl:part name="partnerID" type="s:string" />
+    <wsdl:part name="partnerKey" type="s:string" />
+    <wsdl:part name="searchType" type="s:string" />
+    <wsdl:part name="catRef" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="numNights" type="s:string" />
+    <wsdl:part name="dateFlex" type="s:string" />
+    <wsdl:part name="minSleeps" type="s:string" />
+    <wsdl:part name="minPrice" type="s:string" />
+    <wsdl:part name="maxPrice" type="s:string" />
+    <wsdl:part name="keywordText" type="s:string" />
+    <wsdl:part name="propType" type="s:string" />
+    <wsdl:part name="filter1" type="s:string" />
+    <wsdl:part name="filter2" type="s:string" />
+    <wsdl:part name="filter3" type="s:string" />
+    <wsdl:part name="filter4" type="s:string" />
+    <wsdl:part name="filter5" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="saveSearchQueryHttpGetOut">
+    <wsdl:part name="Body" element="tns:searchKey" />
+  </wsdl:message>
+  <wsdl:message name="fetchPropertyDataHttpGetIn">
+    <wsdl:part name="searchType" type="s:string" />
+    <wsdl:part name="propRef" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="fetchPropertyDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:propertyData" />
+  </wsdl:message>
+  <wsdl:message name="fetchLocationDataHttpGetIn">
+    <wsdl:part name="catRef" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="fetchLocationDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:locationData" />
+  </wsdl:message>
+  <wsdl:portType name="SearchEngineSoap">
+    <wsdl:operation name="fetchNextLocations">
+      <wsdl:input message="tns:fetchNextLocationsSoapIn" />
+      <wsdl:output message="tns:fetchNextLocationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="fetchSearchCriteria">
+      <wsdl:input message="tns:fetchSearchCriteriaSoapIn" />
+      <wsdl:output message="tns:fetchSearchCriteriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="fetchSearchResults">
+      <wsdl:input message="tns:fetchSearchResultsSoapIn" />
+      <wsdl:output message="tns:fetchSearchResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveSearchQuery">
+      <wsdl:input message="tns:saveSearchQuerySoapIn" />
+      <wsdl:output message="tns:saveSearchQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="fetchPropertyData">
+      <wsdl:input message="tns:fetchPropertyDataSoapIn" />
+      <wsdl:output message="tns:fetchPropertyDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="fetchLocationData">
+      <wsdl:input message="tns:fetchLocationDataSoapIn" />
+      <wsdl:output message="tns:fetchLocationDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SearchEngineHttpGet">
+    <wsdl:operation name="fetchNextLocations">
+      <wsdl:input message="tns:fetchNextLocationsHttpGetIn" />
+      <wsdl:output message="tns:fetchNextLocationsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="fetchSearchCriteria">
+      <wsdl:input message="tns:fetchSearchCriteriaHttpGetIn" />
+      <wsdl:output message="tns:fetchSearchCriteriaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="fetchSearchResults">
+      <wsdl:input message="tns:fetchSearchResultsHttpGetIn" />
+      <wsdl:output message="tns:fetchSearchResultsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveSearchQuery">
+      <wsdl:input message="tns:saveSearchQueryHttpGetIn" />
+      <wsdl:output message="tns:saveSearchQueryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="fetchPropertyData">
+      <wsdl:input message="tns:fetchPropertyDataHttpGetIn" />
+      <wsdl:output message="tns:fetchPropertyDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="fetchLocationData">
+      <wsdl:input message="tns:fetchLocationDataHttpGetIn" />
+      <wsdl:output message="tns:fetchLocationDataHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SearchEngineSoap" type="tns:SearchEngineSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="fetchNextLocations">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/SearchEngine/fetchNextLocations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fetchSearchCriteria">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/SearchEngine/fetchSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fetchSearchResults">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/SearchEngine/fetchSearchResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveSearchQuery">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/SearchEngine/saveSearchQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fetchPropertyData">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/SearchEngine/fetchPropertyData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fetchLocationData">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/SearchEngine/fetchLocationData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SearchEngineSoap12" type="tns:SearchEngineSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="fetchNextLocations">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/SearchEngine/fetchNextLocations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fetchSearchCriteria">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/SearchEngine/fetchSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fetchSearchResults">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/SearchEngine/fetchSearchResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveSearchQuery">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/SearchEngine/saveSearchQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fetchPropertyData">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/SearchEngine/fetchPropertyData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fetchLocationData">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/SearchEngine/fetchLocationData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SearchEngineHttpGet" type="tns:SearchEngineHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="fetchNextLocations">
+      <http:operation location="/fetchNextLocations" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fetchSearchCriteria">
+      <http:operation location="/fetchSearchCriteria" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fetchSearchResults">
+      <http:operation location="/fetchSearchResults" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveSearchQuery">
+      <http:operation location="/saveSearchQuery" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fetchPropertyData">
+      <http:operation location="/fetchPropertyData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fetchLocationData">
+      <http:operation location="/fetchLocationData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SearchEngine">
+    <wsdl:port name="SearchEngineSoap" binding="tns:SearchEngineSoap">
+      <soap:address location="http://www.villarenters.com/VillarentersWebService/SearchEngine.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SearchEngineSoap12" binding="tns:SearchEngineSoap12">
+      <soap12:address location="http://www.villarenters.com/VillarentersWebService/SearchEngine.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SearchEngineHttpGet" binding="tns:SearchEngineHttpGet">
+      <http:address location="http://www.villarenters.com/VillarentersWebService/SearchEngine.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

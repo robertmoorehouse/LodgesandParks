@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/VillarentersWebService/Villarenters" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/VillarentersWebService/Villarenters" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/VillarentersWebService/Villarenters">
+      <s:element name="VillaSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Rag" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lngOwnerRef" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="lngPropRef" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCountry" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strRegion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTown" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intMaxPrice" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intMinPrice" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intSleeps" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnInstantBooking" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="intVillarentersIndex" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOrderBy" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intPageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnUnbranded" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VillaSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VillaSearchResult" type="tns:VillaResults" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="VillaResults">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Results" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pages" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Page" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Villas" type="tns:ArrayOfVilla" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfVilla">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Villa" type="tns:Villa" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Villa">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="prop_ref" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="owner_ref" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Summary" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Filename" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Town" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinPrice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxPrice" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrencyLogo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sleeps" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DoubleBeds" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TwinBeds" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SingleBeds" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cots" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Bathrooms" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TV" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Internet" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CentralHeating" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="InstantBooking" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="VillarentersIndex" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="XMLMapSource">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intGetItemType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFilter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAvailabiltyFrom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAvailabiltyTo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lngHighlightItemID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XMLMapSourceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="XMLMapSourceResult" type="tns:MapData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MapData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MapItems" type="tns:ArrayOfMapItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMapItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MapItem" type="tns:MapItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MapItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ItemID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemLon" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemLat" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PopUpTab" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="URL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MapImagePath" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageURL" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CountryList">
+        <s:complexType />
+      </s:element>
+      <s:element name="CountryListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CountryListResult" type="tns:AreasResults" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AreasResults">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Areas" type="tns:ArrayOfArea" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfArea">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Area" type="tns:Area" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Area">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AreaDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Code" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegionList">
+        <s:complexType />
+      </s:element>
+      <s:element name="RegionListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegionListResult" type="tns:AreasResults" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TownList">
+        <s:complexType />
+      </s:element>
+      <s:element name="TownListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TownListResult" type="tns:AreasResults" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VillaResults" type="tns:VillaResults" />
+      <s:element name="MapData" type="tns:MapData" />
+      <s:element name="AreasResults" type="tns:AreasResults" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="VillaSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:VillaSearch" />
+  </wsdl:message>
+  <wsdl:message name="VillaSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:VillaSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="XMLMapSourceSoapIn">
+    <wsdl:part name="parameters" element="tns:XMLMapSource" />
+  </wsdl:message>
+  <wsdl:message name="XMLMapSourceSoapOut">
+    <wsdl:part name="parameters" element="tns:XMLMapSourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="CountryListSoapIn">
+    <wsdl:part name="parameters" element="tns:CountryList" />
+  </wsdl:message>
+  <wsdl:message name="CountryListSoapOut">
+    <wsdl:part name="parameters" element="tns:CountryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegionListSoapIn">
+    <wsdl:part name="parameters" element="tns:RegionList" />
+  </wsdl:message>
+  <wsdl:message name="RegionListSoapOut">
+    <wsdl:part name="parameters" element="tns:RegionListResponse" />
+  </wsdl:message>
+  <wsdl:message name="TownListSoapIn">
+    <wsdl:part name="parameters" element="tns:TownList" />
+  </wsdl:message>
+  <wsdl:message name="TownListSoapOut">
+    <wsdl:part name="parameters" element="tns:TownListResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillaSearchHttpGetIn">
+    <wsdl:part name="Rag" type="s:string" />
+    <wsdl:part name="lngOwnerRef" type="s:string" />
+    <wsdl:part name="lngPropRef" type="s:string" />
+    <wsdl:part name="strCountry" type="s:string" />
+    <wsdl:part name="strRegion" type="s:string" />
+    <wsdl:part name="strTown" type="s:string" />
+    <wsdl:part name="intMaxPrice" type="s:string" />
+    <wsdl:part name="intMinPrice" type="s:string" />
+    <wsdl:part name="intSleeps" type="s:string" />
+    <wsdl:part name="blnInstantBooking" type="s:string" />
+    <wsdl:part name="intVillarentersIndex" type="s:string" />
+    <wsdl:part name="strOrderBy" type="s:string" />
+    <wsdl:part name="intPage" type="s:string" />
+    <wsdl:part name="intPageSize" type="s:string" />
+    <wsdl:part name="blnUnbranded" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VillaSearchHttpGetOut">
+    <wsdl:part name="Body" element="tns:VillaResults" />
+  </wsdl:message>
+  <wsdl:message name="XMLMapSourceHttpGetIn">
+    <wsdl:part name="intGetItemType" type="s:string" />
+    <wsdl:part name="strFilter" type="s:string" />
+    <wsdl:part name="strAvailabiltyFrom" type="s:string" />
+    <wsdl:part name="strAvailabiltyTo" type="s:string" />
+    <wsdl:part name="lngHighlightItemID" type="s:string" />
+    <wsdl:part name="strPd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="XMLMapSourceHttpGetOut">
+    <wsdl:part name="Body" element="tns:MapData" />
+  </wsdl:message>
+  <wsdl:message name="CountryListHttpGetIn" />
+  <wsdl:message name="CountryListHttpGetOut">
+    <wsdl:part name="Body" element="tns:AreasResults" />
+  </wsdl:message>
+  <wsdl:message name="RegionListHttpGetIn" />
+  <wsdl:message name="RegionListHttpGetOut">
+    <wsdl:part name="Body" element="tns:AreasResults" />
+  </wsdl:message>
+  <wsdl:message name="TownListHttpGetIn" />
+  <wsdl:message name="TownListHttpGetOut">
+    <wsdl:part name="Body" element="tns:AreasResults" />
+  </wsdl:message>
+  <wsdl:portType name="VillarentersSoap">
+    <wsdl:operation name="VillaSearch">
+      <wsdl:input message="tns:VillaSearchSoapIn" />
+      <wsdl:output message="tns:VillaSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XMLMapSource">
+      <wsdl:input message="tns:XMLMapSourceSoapIn" />
+      <wsdl:output message="tns:XMLMapSourceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountryList">
+      <wsdl:input message="tns:CountryListSoapIn" />
+      <wsdl:output message="tns:CountryListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegionList">
+      <wsdl:input message="tns:RegionListSoapIn" />
+      <wsdl:output message="tns:RegionListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TownList">
+      <wsdl:input message="tns:TownListSoapIn" />
+      <wsdl:output message="tns:TownListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="VillarentersHttpGet">
+    <wsdl:operation name="VillaSearch">
+      <wsdl:input message="tns:VillaSearchHttpGetIn" />
+      <wsdl:output message="tns:VillaSearchHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XMLMapSource">
+      <wsdl:input message="tns:XMLMapSourceHttpGetIn" />
+      <wsdl:output message="tns:XMLMapSourceHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountryList">
+      <wsdl:input message="tns:CountryListHttpGetIn" />
+      <wsdl:output message="tns:CountryListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegionList">
+      <wsdl:input message="tns:RegionListHttpGetIn" />
+      <wsdl:output message="tns:RegionListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TownList">
+      <wsdl:input message="tns:TownListHttpGetIn" />
+      <wsdl:output message="tns:TownListHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VillarentersSoap" type="tns:VillarentersSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VillaSearch">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/Villarenters/VillaSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XMLMapSource">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/Villarenters/XMLMapSource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryList">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/Villarenters/CountryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegionList">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/Villarenters/RegionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TownList">
+      <soap:operation soapAction="http://tempuri.org/VillarentersWebService/Villarenters/TownList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VillarentersSoap12" type="tns:VillarentersSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VillaSearch">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/Villarenters/VillaSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XMLMapSource">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/Villarenters/XMLMapSource" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryList">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/Villarenters/CountryList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegionList">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/Villarenters/RegionList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TownList">
+      <soap12:operation soapAction="http://tempuri.org/VillarentersWebService/Villarenters/TownList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VillarentersHttpGet" type="tns:VillarentersHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="VillaSearch">
+      <http:operation location="/VillaSearch" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XMLMapSource">
+      <http:operation location="/XMLMapSource" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryList">
+      <http:operation location="/CountryList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegionList">
+      <http:operation location="/RegionList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TownList">
+      <http:operation location="/TownList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Villarenters">
+    <wsdl:port name="VillarentersSoap" binding="tns:VillarentersSoap">
+      <soap:address location="http://www.villarenters.com/VillarentersWebService/Villarenters.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VillarentersSoap12" binding="tns:VillarentersSoap12">
+      <soap12:address location="http://www.villarenters.com/VillarentersWebService/Villarenters.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VillarentersHttpGet" binding="tns:VillarentersHttpGet">
+      <http:address location="http://www.villarenters.com/VillarentersWebService/Villarenters.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
